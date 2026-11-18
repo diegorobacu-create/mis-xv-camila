@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mis XV Camila | Cuenta regresiva</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mis XV Camila | Cuenta regresiva">
+  <meta property="og:description" content="Cuenta regresiva para los XV de Camila.">
+  <meta property="og:image" content="https://diegorobacu-create.github.io/mis-xv-camila/countdown/camila-countdown-bg.jpg?v=1">
+  <meta property="og:image:secure_url" content="https://diegorobacu-create.github.io/mis-xv-camila/countdown/camila-countdown-bg.jpg?v=1">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1055">
+  <meta property="og:image:height" content="1491">
+  <meta property="og:url" content="https://diegorobacu-create.github.io/mis-xv-camila/countdown/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mis XV Camila | Cuenta regresiva">
+  <meta name="twitter:description" content="Cuenta regresiva para los XV de Camila.">
+  <meta name="twitter:image" content="https://diegorobacu-create.github.io/mis-xv-camila/countdown/camila-countdown-bg.jpg?v=1">
+  <style>
+    :root {
+      --pink: #f29abc;
+      --white: #fff9fc;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #f7d4df;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .invite {
+      position: relative;
+      width: min(100vw, 595.5px);
+      aspect-ratio: 1055 / 1491;
+      overflow: hidden;
+      background: url("camila-countdown-bg.jpg") center / cover no-repeat;
+    }
+
+    .countdown {
+      position: absolute;
+      top: 63%;
+      left: 50%;
+      width: 62%;
+      transform: translate(-50%, -50%);
+      transition: top .9s ease;
+      color: var(--white);
+      text-align: center;
+      text-shadow: 0 2px 10px rgba(160, 62, 104, .16);
+    }
+
+    .days-unit strong {
+      display: block;
+      font-size: clamp(2.6rem, 10vw, 4.2rem);
+      line-height: .92;
+      font-weight: 400;
+      letter-spacing: .02em;
+    }
+
+    .days-unit,
+    .time-row {
+      transition: opacity .9s ease, transform .9s ease;
+    }
+
+    .days-unit span,
+    .time-unit span {
+      display: block;
+      letter-spacing: .12em;
+    }
+
+    .days-unit span {
+      margin-top: .5rem;
+      font-size: clamp(.65rem, 2.5vw, .92rem);
+    }
+
+    .time-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: start;
+      margin: 1.1rem auto 0;
+      width: 100%;
+      column-gap: clamp(.18rem, 1.5vw, .45rem);
+    }
+
+    .time-unit strong {
+      display: block;
+      font-size: clamp(1.2rem, 5vw, 2.25rem);
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .time-unit span {
+      display: block;
+      margin-top: .35rem;
+      font-size: clamp(.42rem, 1.55vw, .62rem);
+    }
+
+    .separator {
+      padding-top: .05rem;
+      font-size: clamp(1.1rem, 4.4vw, 1.9rem);
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .celebration {
+      position: absolute;
+      top: 57%;
+      left: 50%;
+      width: 52%;
+      margin: 0;
+      text-align: center;
+      font-size: clamp(1rem, 5vw, 2.1rem);
+      letter-spacing: .05em;
+      line-height: 1.15;
+      white-space: normal;
+      color: #fff9fc;
+      z-index: 4;
+      opacity: 0;
+      transform: translate(-50%, 14px) scale(.9);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+
+    .celebration small {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: .7rem;
+      font-size: clamp(.8rem, 3.2vw, 1.2rem);
+      letter-spacing: .25em;
+    }
+
+    .info-button {
+      position: absolute;
+      left: 50%;
+      bottom: 10.2%;
+      transform: translateX(-50%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22%;
+      min-height: 2.1rem;
+      padding: .42rem .9rem;
+      border: 1px solid rgba(255, 249, 252, .82);
+      border-radius: 999px;
+      background: rgba(255, 249, 252, .3);
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(.68rem, 2.5vw, .92rem);
+      letter-spacing: .2em;
+      text-decoration: none;
+      text-shadow: 0 1px 6px rgba(160, 62, 104, .18);
+      transition: background-color .2s ease, transform .2s ease;
+      z-index: 5;
+    }
+
+    .info-button:hover,
+    .info-button:focus-visible {
+      background: rgba(255, 249, 252, .55);
+      transform: translateX(-50%) translateY(-1px);
+    }
+
+    .confetti {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .8s ease;
+      z-index: 3;
+    }
+
+    .confetti i {
+      position: absolute;
+      top: -8%;
+      width: 7px;
+      height: 16px;
+      border-radius: 2px;
+      background: var(--color);
+      transform: rotate(var(--rotation));
+      opacity: .95;
+      animation: fall var(--duration) linear infinite;
+      animation-delay: var(--delay);
+    }
+
+    body.celebrating .days-unit,
+    body.celebrating .time-row {
+      position: absolute;
+      opacity: 0;
+      transform: translateY(-14px) scale(.96);
+      pointer-events: none;
+    }
+
+    body.celebrating .celebration {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      animation: celebrate 1.8s ease-in-out infinite;
+    }
+
+    body.celebrating .confetti { opacity: 1; }
+
+    @keyframes fall {
+      to { transform: translate3d(var(--drift), 115vh, 0) rotate(720deg); }
+    }
+
+    @keyframes celebrate {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.05); }
+    }
+
+    @media (min-aspect-ratio: 1055 / 1491) {
+      .invite { width: auto; height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+  <main class="invite" aria-label="Cuenta regresiva para los XV de Camila">
+    <section class="countdown" aria-live="polite">
+      <div class="days-unit"><strong id="days">0</strong><span>DÍAS</span></div>
+      <div class="time-row">
+        <div class="time-unit"><strong id="hours">00</strong><span>HORAS</span></div>
+        <b class="separator">:</b>
+        <div class="time-unit"><strong id="minutes">00</strong><span>MINUTOS</span></div>
+        <b class="separator">:</b>
+        <div class="time-unit"><strong id="seconds">00</strong><span>SEGUNDOS</span></div>
+      </div>
+    </section>
+    <div class="celebration">27 DE NOVIEMBRE<small>¡LLEGÓ EL GRAN DÍA!</small></div>
+    <a class="info-button" href="https://diegorobacu-create.github.io/mis-xv-camila/?v=preview4" target="_blank" rel="noopener" aria-label="Ver información completa de la invitación">INFO</a>
+    <div class="confetti" aria-hidden="true"></div>
+  </main>
+
+  <script>
+    // Cuenta regresiva: 27 de noviembre de 2026 a las 00:00, hora argentina.
+    const target = new Date("2026-11-27T00:00:00-03:00").getTime();
+    const previewCelebration = new URLSearchParams(window.location.search).get("preview") === "celebration" || window.location.hash === "#celebration";
+    const fields = {
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds")
+    };
+    let timer = null;
+
+    function pad(value) {
+      return String(value).padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const remaining = Math.max(0, target - Date.now());
+      const totalSeconds = Math.floor(remaining / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      fields.days.textContent = days;
+      fields.hours.textContent = pad(hours);
+      fields.minutes.textContent = pad(minutes);
+      fields.seconds.textContent = pad(seconds);
+
+      if (remaining <= 0) {
+        document.body.classList.add("celebrating");
+        clearInterval(timer);
+      }
+    }
+
+    const colors = ["#fff9fc", "#f7c1d5", "#d85f91", "#ffffff"];
+    const confetti = document.querySelector(".confetti");
+    for (let i = 0; i < 64; i += 1) {
+      const piece = document.createElement("i");
+      piece.style.left = `${Math.random() * 100}%`;
+      piece.style.setProperty("--color", colors[i % colors.length]);
+      piece.style.setProperty("--rotation", `${Math.random() * 180}deg`);
+      piece.style.setProperty("--drift", `${(Math.random() - .5) * 180}px`);
+      piece.style.setProperty("--duration", `${3 + Math.random() * 3}s`);
+      piece.style.setProperty("--delay", `${Math.random() * 3}s`);
+      confetti.appendChild(piece);
+    }
+
+    updateCountdown();
+    timer = setInterval(updateCountdown, 1000);
+    if (previewCelebration) document.body.classList.add("celebrating");
+  </script>
+</body>
+</html>
