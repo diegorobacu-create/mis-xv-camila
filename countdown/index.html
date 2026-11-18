@@ -7,8 +7,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Mis XV Camila | Cuenta regresiva">
   <meta property="og:description" content="Cuenta regresiva para los XV de Camila.">
-  <meta property="og:image" content="https://diegorobacu-create.github.io/mis-xv-camila/countdown/camila-countdown-bg.jpg?v=1">
-  <meta property="og:image:secure_url" content="https://diegorobacu-create.github.io/mis-xv-camila/countdown/camila-countdown-bg.jpg?v=1">
+  <meta property="og:image" content="https://diegorobacu-create.github.io/mis-xv-camila/countdown/camila-countdown-bg.jpg?v=2">
+  <meta property="og:image:secure_url" content="https://diegorobacu-create.github.io/mis-xv-camila/countdown/camila-countdown-bg.jpg?v=2">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1055">
   <meta property="og:image:height" content="1491">
@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mis XV Camila | Cuenta regresiva">
   <meta name="twitter:description" content="Cuenta regresiva para los XV de Camila.">
-  <meta name="twitter:image" content="https://diegorobacu-create.github.io/mis-xv-camila/countdown/camila-countdown-bg.jpg?v=1">
+  <meta name="twitter:image" content="https://diegorobacu-create.github.io/mis-xv-camila/countdown/camila-countdown-bg.jpg?v=2">
   <style>
     :root {
       --pink: #f29abc;
@@ -45,6 +45,22 @@
       aspect-ratio: 1055 / 1491;
       overflow: hidden;
       background: url("camila-countdown-bg.jpg") center / cover no-repeat;
+    }
+
+    .invitation-quote {
+      position: absolute;
+      top: 31.5%;
+      left: 50%;
+      width: 70%;
+      margin: 0;
+      transform: translateX(-50%);
+      color: var(--white);
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.15rem, 3.8vw, 1.5rem);
+      line-height: 1.2;
+      letter-spacing: .01em;
+      text-shadow: 0 2px 10px rgba(160, 62, 104, .16);
     }
 
     .countdown {
@@ -224,6 +240,7 @@
 </head>
 <body>
   <main class="invite" aria-label="Cuenta regresiva para los XV de Camila">
+    <p class="invitation-quote">"En este momento tan especial,<br>quiero que estés aquí presente<br>para vivirlo conmigo"</p>
     <section class="countdown" aria-live="polite">
       <div class="days-unit"><strong id="days">0</strong><span>DÍAS</span></div>
       <div class="time-row">
