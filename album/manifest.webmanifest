@@ -1,0 +1,14 @@
+{
+  "name": "Fotos de los XV de Cami",
+  "short_name": "XV de Cami",
+  "start_url": "./",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "scope": "./"
+}
